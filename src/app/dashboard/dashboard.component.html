@@ -1,0 +1,47 @@
+<div class="dashboard-container" [class.mobile]="mobileQuery.matches">
+  <mat-toolbar class="toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>`
+    </button>
+    <h1 class="app-name">{{ title }}</h1>
+    <span class="spacer"></span>
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      user name
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>An option</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+      #snav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+      class="side-nav"
+    >
+      <mat-selection-list [multiple]="false">
+        <mat-list-option *ngFor="let route of routesList">
+          <a mat-list-item [routerLink]="route.path"
+            ><mat-icon>{{ route.icon }}</mat-icon
+            ><span>{{ route.name }}</span></a
+          >
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <section class="main-dashboard">
+        <router-outlet></router-outlet>
+      </section>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
