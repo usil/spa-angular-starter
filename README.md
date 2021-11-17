@@ -11,11 +11,17 @@ This is a simple template to use angular with material
 
 - Nodejs >12
 
-## Dynamic Settings
+## Features
 
-You will only have to use one settings file. For more info about this take a look at: <https://github.com/usil/nodeboot-spa-server>.
+### Dynamic Settings
 
-- Just modify the included `settings.json` file, with env variables that you need.
+Are you tired of build again and again your spa just when settings change? Read [this](https://github.com/nodeboot/nodeboot-spa-server#features) to understand how I fixed!
+
+This template have a npm library called **nodeboot-spa-server** that give you and endpoint `/settings.json` with variables ready to be consumed at the entrypoint of your spa application using ajax and then expose it to the rest of your application using localtorage, global variable, private field, etc
+
+Steps:
+
+- Just modify the included `settings.json` file, with env variables that your spa needs **by environment(dev, test, prod, etc)** like: microservices urls, some apikey, layout configurations, colors, etc and any kind of settings that your app needs.
 - Only create one build instead of creating one build for each stage (testing, production, development, etc). Just modify or replace the `settings.json` file.
 - You can change the name of the file if you desire to do so, then you will need to also modify the `custom-webpack.config.js` file.
 
@@ -27,15 +33,43 @@ Add the materials in the materials folder that is present in each module.
 
 Just run `ng serve` like always. This template uses a modified angular development server.
 
-## For Production
-
-First use `ng build` then `npm start`, this will run `nodeboot-spa-server dist/template-dashboard -s settings.json -p 2000 --allow-routes`
-
 ## Testing
 
 You can also look a the testing here as a template. The testing only covers the general parts of the app, adding for example a new angular material component, (in a any way different to the mentioned before), will break the testing. For more info take a look at <https://angular.io/guide/testing-components-scenarios>
 
 `more functionalities in progress`
+
+## For Production
+
+First use `ng build` then `npm start`, this will run `nodeboot-spa-server dist/template-dashboard -s settings.json -p 2000 --allow-routes`
+
+## For Production with Docker
+
+- Build the image
+
+```
+docker build -t spa-angular-starter .
+```
+
+- Run
+
+By default, 8080 port is used.
+
+```
+docker run -it -p 3000:8080 --name acme_web spa-angular-starter
+```
+
+If you want to inject some variable to your spa
+
+```
+docker run -it -p 3000:8080 \
+-e ACME_API_BASE_URL=https://acme-api.com  \
+-e ACME_WELCOME_QUOTE="welcome folk" \
+-e ACME_BACKGROUND_COLOR="green" \
+--name acme-web spa-angular-starter
+```
+
+Point your browser to: http://localhost:3000 and you will see your spa rendered and an endpoint with your settings http://localhost:3000/settings.json ready to use.
 
 ## Contributors
 
