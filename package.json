@@ -1,9 +1,10 @@
 {
   "name": "template-dashboard",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "dev": "ng serve",
+    "start": "nodeboot-spa-server dist/template-dashboard -s settings.json -p 2000 --allow-routes",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
