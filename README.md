@@ -1,5 +1,14 @@
 # Template angular 1.0.0
 
+## Coverage
+
+```text
+Statements : 95.52% ( 64/67 )
+Branches : 87.5% ( 7/8 )
+Functions : 91.3% ( 21/23 )
+Lines : 96.77% ( 60/62 )
+```
+
 This is a simple template to use angular with material
 
 ## Technologies Used
