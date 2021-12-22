@@ -30,19 +30,23 @@ export class TablesComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  constructor(private _liveAnnouncer: LiveAnnouncer) {}
+  constructor(public _liveAnnouncer: LiveAnnouncer) {}
 
   @ViewChild(MatSort) sort?: MatSort;
 
   ngOnInit(): void {}
 
   ngAfterViewInit() {
+    this.addSort();
+  }
+
+  addSort() {
     this.dataSource.sort = this.sort || null;
   }
 
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction} ending`);
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }

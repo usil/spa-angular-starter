@@ -8,7 +8,7 @@
     <mat-grid-tile>
       <mat-form-field class="forms-field" appearance="fill">
         <mat-label>Select</mat-label>
-        <mat-select>
+        <mat-select required name="option" [(ngModel)]="form.option">
           <mat-option value="one">First option</mat-option>
           <mat-option value="two">Second option</mat-option>
         </mat-select>
@@ -18,7 +18,13 @@
     <mat-grid-tile [colspan]="currentScreenSize > 2 ? 2 : 1">
       <mat-form-field class="forms-field" appearance="fill">
         <mat-label>Name</mat-label>
-        <input matInput placeholder="A Name" required />
+        <input
+          matInput
+          placeholder="A Name"
+          name="name"
+          [(ngModel)]="form.name"
+          required
+        />
         <mat-hint>Put your name</mat-hint>
       </mat-form-field>
     </mat-grid-tile>
@@ -26,10 +32,13 @@
       <mat-form-field class="forms-field" appearance="fill" floatLabel="always">
         <mat-label>Amount</mat-label>
         <input
+          [(ngModel)]="form.amount"
+          name="amount"
           matInput
           type="number"
           class="input-right-align"
           placeholder="0"
+          required
         />
         <span matPrefix>$&nbsp;</span>
         <span matSuffix>.00</span>
@@ -38,15 +47,27 @@
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field class="forms-field" appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="A Name" required />
-        <mat-hint>Put your name</mat-hint>
+        <mat-label>Extra</mat-label>
+        <input
+          [(ngModel)]="form.extra"
+          name="extra"
+          matInput
+          placeholder="Some extra"
+          required
+        />
+        <mat-hint>Put your extra</mat-hint>
       </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile>
       <mat-form-field class="forms-field" appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" />
+        <input
+          required
+          [(ngModel)]="form.password"
+          name="password"
+          matInput
+          [type]="hide ? 'password' : 'text'"
+        />
         <button
           mat-icon-button
           matSuffix
@@ -61,6 +82,12 @@
     </mat-grid-tile>
   </mat-grid-list>
   <div class="actions">
-    <button mat-raised-button color="accent">Submit</button>
+    <button (click)="executeForm(form)" mat-raised-button color="accent">
+      Submit
+    </button>
   </div>
 </form>
+<h4 id="result">
+  {{ optionTitle }} | {{ nameTitle }} | {{ amountTitle }} | {{ extraTitle }} |
+  {{ passwordTitle }}
+</h4>

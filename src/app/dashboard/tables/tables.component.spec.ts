@@ -24,4 +24,26 @@ describe('TablesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should announce', () => {
+    spyOn(component._liveAnnouncer, 'announce');
+    component.announceSortChange({ active: 'it', direction: 'asc' });
+    expect(component._liveAnnouncer.announce).toHaveBeenCalledWith(
+      `Sorted asc ending`
+    );
+    component.announceSortChange({ active: 'it', direction: 'desc' });
+    expect(component._liveAnnouncer.announce).toHaveBeenCalledWith(
+      `Sorted desc ending`
+    );
+    component.announceSortChange({ active: 'it', direction: '' });
+    expect(component._liveAnnouncer.announce).toHaveBeenCalledWith(
+      `Sorting cleared`
+    );
+  });
+
+  it('Correct Sort', () => {
+    spyOn(component, 'addSort');
+    component.ngAfterViewInit();
+    expect(component.addSort).toHaveBeenCalled();
+  });
 });

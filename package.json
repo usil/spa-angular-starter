@@ -1,13 +1,14 @@
 {
   "name": "template-dashboard",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "dev": "ng serve",
     "start": "nodeboot-spa-server dist/template-dashboard -s settings.json --allow-routes",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:coverage": "ng test --no-watch --code-coverage"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +40,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "nodeboot-spa-server": "git+https://github.com/usil/nodeboot-spa-server.git",
     "typescript": "~4.4.3"
   }
 }

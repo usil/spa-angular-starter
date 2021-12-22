@@ -1,5 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import {
+  BreakpointObserver,
+  Breakpoints,
+  BreakpointState,
+} from '@angular/cdk/layout';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -11,6 +15,14 @@ export class FormsComponent implements OnInit, OnDestroy {
   destroyed = new Subject<void>();
   currentScreenSize = 1;
   hide = true;
+
+  nameTitle = '';
+  optionTitle = '';
+  amountTitle!: number;
+  extraTitle = '';
+  passwordTitle = '';
+
+  form = { name: '', option: '', amount: 0, extra: '', password: '' };
 
   displayNameMap = new Map([
     [Breakpoints.XSmall, 1],
@@ -31,15 +43,45 @@ export class FormsComponent implements OnInit, OnDestroy {
       ])
       .pipe(takeUntil(this.destroyed))
       .subscribe((result) => {
-        for (const query of Object.keys(result.breakpoints)) {
-          if (result.breakpoints[query]) {
-            this.currentScreenSize = this.displayNameMap.get(query) ?? 1;
-          }
-        }
+        this.currentScreenSize = this.changeCurrentScreenSize(result);
       });
   }
 
+  changeCurrentScreenSize(result: BreakpointState) {
+    for (const query of Object.keys(result.breakpoints)) {
+      if (result.breakpoints[query]) {
+        return this.displayNameMap.get(query) || 1;
+      }
+    }
+    return 1;
+  }
+
+  logChange(e: Event) {
+    console.log(e.target);
+  }
+
   ngOnInit(): void {}
+
+  executeForm(form: {
+    name: string;
+    option: string;
+    amount: number;
+    extra: string;
+    password: string;
+  }) {
+    this.nameTitle = form.name;
+    this.optionTitle = form.option;
+    this.amountTitle = form.amount;
+    this.extraTitle = form.extra;
+    this.passwordTitle = form.password;
+    return {
+      nameTitle: this.nameTitle,
+      optionTitle: this.optionTitle,
+      amountTitle: this.amountTitle,
+      extraTitle: this.extraTitle,
+      passwordTitle: this.passwordTitle,
+    };
+  }
 
   ngOnDestroy() {
     this.destroyed.next();
