@@ -3,44 +3,9 @@
     <div class="login">
       <img width="300px" src="assets/usil.png" alt="usil logo" />
       <h2>Sign In</h2>
-      <form>
-        <mat-grid-list rowHeight="100px" cols="1">
-          <mat-grid-tile>
-            <mat-form-field class="forms-field" appearance="outline">
-              <mat-label>Username</mat-label>
-              <input matInput placeholder="Ej: user001" required />
-              <mat-hint>Put your username</mat-hint>
-            </mat-form-field>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <mat-form-field class="forms-field" appearance="outline">
-              <mat-label>Password</mat-label>
-              <input matInput [type]="hide ? 'password' : 'text'" />
-              <button
-                mat-icon-button
-                matSuffix
-                (click)="hide = !hide"
-                [attr.aria-label]="'Hide password'"
-                [attr.aria-pressed]="hide"
-              >
-                <mat-icon>{{
-                  hide ? "visibility_off" : "visibility"
-                }}</mat-icon>
-              </button>
-              <mat-hint>Put your password</mat-hint>
-            </mat-form-field>
-          </mat-grid-tile>
-        </mat-grid-list>
-        <button
-          routerLink="/dashboard"
-          type="button"
-          class="login-btn"
-          color="accent"
-          mat-raised-button
-        >
-          Enter
-        </button>
-      </form>
+      <button (click)="goToLogin()" color="primary" mat-flat-button>
+        Login With Microsoft
+      </button>
     </div>
   </mat-grid-tile>
   <mat-grid-tile> <div class="presentation"></div></mat-grid-tile>
