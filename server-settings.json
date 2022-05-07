@@ -5,11 +5,12 @@
   "loginPage": "/login",
   "successPage": "/success",
   "publicPages": [],
-  "applicationIdentifier": "web1",
+  "applicationIdentifier": "pasarela-web",
   "oauth2BaseUrl": "${SECURITY_OAUTH2_BASE_URL}",
-  "oauth2TimerRefreshInterval": "${SECURITY_OAUTH2_TIME_INTERVAL}",
   "oauth2RefreshTokenUrl": "${SECURITY_OAUTH2_REFRESH_TOKEN_URL}",
   "oauth2ClientId": "${OAUTH2_CLIENT_ID}",
   "oauth2TokenUserEndpoint": "${SECURITY_OAUTH2_TOKEN_USER_URL}",
-  "oauth2AuthorizeUrl": "${SECURITY_OAUTH2_AUTHORIZE_URL}"
+  "oauth2AuthorizeUrl": "${SECURITY_OAUTH2_AUTHORIZE_URL}",
+  "oauth2MaxAllowedIdleTime": "${SECURITY_OAUTH2_MAX_SECONDS_ALLOWED_FOR_IDLE_USER}",
+  "oauth2RefreshTokenBeforeExpirationTime": "${SECURITY_OAUTH2_REFRESH_TOKEN_SECONDS_BEFORE_EXPIRATION}"
 }
