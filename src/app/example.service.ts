@@ -18,4 +18,8 @@ export class ExampleService {
       .get('/settings.json', { headers: { 'X-Skip-Interceptor': 'true' } })
       .pipe(take(1));
   }
+
+  ping() {
+    return this.http.get('/ping').pipe(take(1));
+  }
 }

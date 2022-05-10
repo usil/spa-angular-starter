@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "dev": "ng serve",
-    "start": "nodeboot-spa-server dist/template-dashboard -s settings.json --serverSettings server-settings.json -p 8080 --allow-routes --oauth2 | bunyan",
+    "start": "nodeboot-spa-server dist/template-dashboard -s settings.json --serverSettings server-settings.json -p 2000 --allow-routes --oauth2 | bunyan",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -25,6 +25,7 @@
     "advanced-settings": "git+https://github.com/usil/advanced-settings.git",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
+    "usil-oauth": "file:usil-oauth-1.0.9.tgz",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
