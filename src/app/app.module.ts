@@ -1,4 +1,3 @@
-import { ExampleInterceptor } from './example.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,13 +16,6 @@ import { SuccessPageComponent } from './success-page/success-page.component';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: ExampleInterceptor,
-      multi: true,
-    },
   ],
   bootstrap: [AppComponent],
 })

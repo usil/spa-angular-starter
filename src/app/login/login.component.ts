@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   goToLogin() {
-    const baseUrl = window.location.origin;
-    window.location.href = `${baseUrl}/oauth2/login`;
+    // const baseUrl = window.location.origin;
+    // window.location.href = `${baseUrl}/oauth2/login`;
   }
 }
