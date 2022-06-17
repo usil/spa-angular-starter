@@ -25,7 +25,6 @@
     "advanced-settings": "git+https://github.com/usil/advanced-settings.git",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
-    "usil-oauth": "file:usil-oauth-1.0.9.tgz",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
