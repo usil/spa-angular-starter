@@ -12,16 +12,16 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~13.3.6",
+    "@angular/animations": "^14.0.2",
     "@angular/cdk": "^13.3.6",
-    "@angular/common": "~13.3.6",
-    "@angular/compiler": "~13.3.6",
-    "@angular/core": "~13.3.6",
-    "@angular/forms": "~13.3.6",
+    "@angular/common": "^14.0.2",
+    "@angular/compiler": "^14.0.2",
+    "@angular/core": "^14.0.2",
+    "@angular/forms": "^14.0.2",
     "@angular/material": "^13.3.6",
-    "@angular/platform-browser": "~13.3.6",
-    "@angular/platform-browser-dynamic": "~13.3.6",
-    "@angular/router": "~13.3.6",
+    "@angular/platform-browser": "^14.0.2",
+    "@angular/platform-browser-dynamic": "^14.0.2",
+    "@angular/router": "^14.0.2",
     "advanced-settings": "git+https://github.com/usil/advanced-settings.git",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
@@ -30,9 +30,9 @@
   },
   "devDependencies": {
     "@angular-builders/custom-webpack": "^13.1.0",
-    "@angular-devkit/build-angular": "^13.3.5",
-    "@angular/cli": "~13.3.5",
-    "@angular/compiler-cli": "~13.3.6",
+    "@angular-devkit/build-angular": "^14.0.2",
+    "@angular/cli": "^14.0.2",
+    "@angular/compiler-cli": "^14.0.2",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.10.0",
@@ -42,6 +42,6 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "nodeboot-spa-server": "git+https://github.com/usil/nodeboot-spa-server.git#add-oauth2",
-    "typescript": "~4.4.3"
+    "typescript": "~4.7.3"
   }
 }
